@@ -54,7 +54,7 @@
             "3": SwitchToTab("Artists"),
             "4": SwitchToTab("Albums"),
             "5": SwitchToTab("Playlists"),
-            "6": SwitchToTab("Search"),
+            "3": SwitchToTab("Search"),
         },
 
         navigation: {
@@ -176,9 +176,6 @@
             ),
         ),
         (name: "Directories", borders: "ALL", pane: Pane(Directories)),
-        (name: "Artists", borders: "ALL", pane: Pane(Artists)),
-        (name: "Albums", borders: "ALL", pane: Pane(Albums)),
-        (name: "Playlists", borders: "ALL", pane: Pane(Playlists)),
         (name: "Search", borders: "ALL", pane: Pane(Search)),
     ],
 )

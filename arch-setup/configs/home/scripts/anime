@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASE="/home/vuxt/Vuxt-NAS/Anime"
+BASE="/mnt/Vuxt-NAS/Anime/"
 
 [ "$#" -lt 1 ] && echo "Usage: anime <anime name> [ani-cli options]" && exit 1
 
