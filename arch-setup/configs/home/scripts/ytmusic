@@ -1,10 +1,9 @@
 #!/bin/bash
 
 FIX_SCRIPT="$HOME/scripts/fix_ogg_tags.py"
-RECONCILE_SCRIPT="$HOME/scripts/reconcile_album_vs_single.py"
-MUSIC_DIR="/home/vuxt/Vuxt-NAS/Music"
+MUSIC_DIR="/mnt/Vuxt-NAS/Music/"
 
-[ "$#" -eq 0 ] && echo "Usage: ytmusic <YouTube Music or YouTube URL>" && exit 1
+[ "$#" -eq 0 ] && echo "Usage: ytmusic <URL>" && exit 1
 
 yt-dlp \
   --extract-audio \
@@ -15,7 +14,8 @@ yt-dlp \
   --yes-playlist \
   --ignore-errors \
   --parse-metadata "playlist_index:%(track_number)s" \
+  --replace-in-metadata title "\(Official.*?\)|\[.*?\]" "" \
   --exec "python3 \"$FIX_SCRIPT\" {}" \
-  --exec "python3 \"$RECONCILE_SCRIPT\" {}" \
-  -o "$MUSIC_DIR/%(album_artist,artist|Unknown Artist)s - %(album,playlist_title|Unknown Album)s/%(playlist_index)02d - %(title)s.%(ext)s" \
+  --replace-in-metadata playlist_title "^Album - " "" \
+  -o "$MUSIC_DIR/%(uploader)s/%(playlist_title)s/%(playlist_index)02d - %(title)s.%(ext)s" \
   "$@"
