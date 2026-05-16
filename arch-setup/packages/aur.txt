@@ -1,3 +1,0 @@
-ani-cli
-ibus-mozc
-maplemono-ttf
