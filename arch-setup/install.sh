@@ -68,6 +68,20 @@ echo "============================================"
 ./scripts/restore-gnome.sh
 
 echo
+echo "============================================"
+echo " Step 6: Restoring dotfiles"
+echo "============================================"
+
+./scripts/restore-dotfiles.sh
+
+echo
+echo "============================================"
+echo " Step 7: Restoring home directory files"
+echo "============================================"
+
+./scripts/restore-home.sh
+
+echo
 
 echo "============================================"
 echo " Installation Complete"
