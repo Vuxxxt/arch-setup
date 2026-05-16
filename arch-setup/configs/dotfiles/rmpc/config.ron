@@ -1,0 +1,184 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    address: "127.0.0.1:6600",
+
+    theme: Some("Sunrise"),
+    cache_dir: Some("~/.config/rmpc/cache"),
+
+    volume_step: 5,
+    max_fps: 60,
+    scrolloff: 0,
+    wrap_navigation: false,
+
+    enable_mouse: true,
+    enable_config_hot_reload: true,
+    status_update_interval_ms: 1000,
+    select_current_song_on_change: false,
+
+    album_art: (
+        method: Auto,
+        max_size_px: (width: 1200, height: 1200),
+        disabled_protocols: ["http://", "https://"],
+        vertical_align: Center,
+        horizontal_align: Center,
+    ),
+
+    keybinds: (
+        global: {
+            "u": Update, // update music database
+            "U": Rescan,
+            ":": CommandMode,
+            ",": VolumeDown,
+            ".": VolumeUp,
+            "s": Stop,
+            "p": TogglePause,
+            ">": NextTrack,
+            "<": PreviousTrack,
+            "f": SeekForward,
+            "b": SeekBack,
+            "z": ToggleRepeat,
+            "x": ToggleRandom,
+            "c": ToggleConsume,
+            "v": ToggleSingle,
+            "q": Quit,
+            "~": ShowHelp,
+            "I": ShowCurrentSongInfo,
+            "O": ShowOutputs,
+            "P": ShowDecoders,
+            "<Tab>": NextTab,
+            "<S-Tab>": PreviousTab,
+            "1": SwitchToTab("Queue"),
+            "2": SwitchToTab("Directories"),
+            "3": SwitchToTab("Artists"),
+            "4": SwitchToTab("Albums"),
+            "5": SwitchToTab("Playlists"),
+            "6": SwitchToTab("Search"),
+        },
+
+        navigation: {
+            "k": Up,
+            "j": Down,
+            "h": Left,
+            "l": Right,
+            "<Up>": Up,
+            "<Down>": Down,
+            "<Left>": Left,
+            "<Right>": Right,
+            "<C-k>": PaneUp,
+            "<C-j>": PaneDown,
+            "<C-h>": PaneLeft,
+            "<C-l>": PaneRight,
+            "<C-u>": UpHalf,
+            "<C-d>": DownHalf,
+            "g": Top,
+            "G": Bottom,
+            "a": Add,
+            "A": AddAll,
+            "r": Rename,
+            "n": NextResult,
+            "N": PreviousResult,
+            "<Space>": Select,
+            "<C-Space>": InvertSelection,
+            "<CR>": Confirm,
+            "/": EnterSearch,
+            "<Esc>": Close,
+            "<C-c>": Close,
+            "J": MoveDown,
+            "K": MoveUp,
+            "D": Delete,
+            "i": FocusInput,
+        },
+
+        queue: {
+            "<CR>": Play,
+            "a": AddToPlaylist,
+            "d": Delete,
+            "D": DeleteAll,
+            "<C-s>": Save,
+            "i": ShowInfo,
+            "C": JumpToCurrent,
+        },
+    ),
+
+    search: (
+        case_sensitive: false,
+        mode: Contains,
+        tags: [
+            (value: "any", label: "Any"),
+            (value: "artist", label: "Artist"),
+            (value: "album", label: "Album"),
+            (value: "title", label: "Title"),
+            (value: "filename", label: "Filename"),
+            (value: "genre", label: "Genre"),
+        ],
+    ),
+
+    artists: (
+        album_display_mode: SplitByDate,
+        album_sort_by: Date,
+    ),
+
+    cava: (
+        framerate: 120,
+        autosens: true,
+        sensitivity: 100,
+        bar_width: 20,
+        lower_cutoff_freq: 50,
+        higher_cutoff_freq: 10000,
+        input: (
+            method: Fifo,
+            source: "/tmp/mpd.fifo",
+            sample_rate: 44100,
+            channels: 2,
+            samble_bits: 16,
+        ),
+        smoothing: (
+            noise_reduction: 77,
+            monstercat: false,
+            waves: false,
+        ),
+        eq: [],
+    ),
+
+    tabs: [
+        (
+            name: "Queue",
+            borders: "ALL",
+            pane: Split(
+                direction: Horizontal,
+                panes: [
+                    (
+                        size: "40%",
+                        borders: "ALL",
+                        pane: Pane(AlbumArt),
+                    ),
+                    (
+                        size: "60%",
+                        pane: Split(
+                            direction: Vertical,
+                            panes: [
+                                (
+                                    size: "80%",
+                                    borders: "ALL",
+                                    pane: Pane(Queue),
+                                ),
+                                (
+                                    size: "20%",
+                                    borders: "ALL",
+                                    pane: Pane(Cava),
+                                ),
+                            ],
+                        ),
+                    ),
+                ],
+            ),
+        ),
+        (name: "Directories", borders: "ALL", pane: Pane(Directories)),
+        (name: "Artists", borders: "ALL", pane: Pane(Artists)),
+        (name: "Albums", borders: "ALL", pane: Pane(Albums)),
+        (name: "Playlists", borders: "ALL", pane: Pane(Playlists)),
+        (name: "Search", borders: "ALL", pane: Pane(Search)),
+    ],
+)
