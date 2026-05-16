@@ -1,0 +1,22 @@
+#!/bin/bash
+
+BASE="/mnt/Vuxt-NAS/Anime/"
+
+[ "$#" -lt 1 ] && echo "Usage: anime <anime name> [ani-cli options]" && exit 1
+
+NAME="$1"
+shift
+
+SAFE_NAME=$(echo "$NAME" | sed 's/[\/:*?"<>|]//g')
+
+DIR="$BASE/$SAFE_NAME"
+mkdir -p "$DIR"
+
+cd "$DIR" || exit 1
+
+# Default: download all episodes if no -e provided
+if [[ "$*" != *"-e"* ]]; then
+  set -- -e 1-300 "$@"
+fi
+
+ani-cli -d -q 1080p "$NAME" "$@"

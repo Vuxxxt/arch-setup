@@ -1,0 +1,13 @@
+btop
+cava
+fastfetch
+firefox
+kitty
+mpc
+mpv
+mpd
+neovim
+rmpc
+yt-dlp
+base-devel
+git
