@@ -9,5 +9,3 @@ mpd
 neovim
 rmpc
 yt-dlp
-base-devel
-git
