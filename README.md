@@ -7,4 +7,3 @@ This script is about 60% complete and is intended to work once archinstaller usi
 * Auto setup certain packages eg; mpd.
 * Auto move application configs and set them as the correct path if possible (Not needed in current state).
 * Auto chmod added scripts.
-* Add custom SDDM greeter install and theme config.
