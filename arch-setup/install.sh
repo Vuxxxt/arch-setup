@@ -18,10 +18,13 @@ echo " - Install pacman packages"
 echo " - Install AUR packages"
 echo " - Install flatpak applications"
 echo " - Setup locale"
-echo " - Restore GNOME settings"
 echo " - Restore dotfiles"
 echo " - Restore home files"
+echo " - Mount NAS"
+echo " - Configure MPD"
 echo " - Install SDDM theme"
+echo " - Add Wireguard Config"
+echo " - Restore GNOME settings"
 echo
 
 read -rp "Proceed? (y/N): " confirm
@@ -74,15 +77,7 @@ echo "============================================"
 echo
 
 echo "============================================"
-echo " Step 6: Restoring GNOME settings"
-echo "============================================"
-
-./scripts/restore-gnome.sh
-
-echo
-
-echo "============================================"
-echo " Step 7: Restoring dotfiles"
+echo " Step 6: Restoring dotfiles"
 echo "============================================"
 
 ./scripts/restore-dotfiles.sh
@@ -90,12 +85,21 @@ echo "============================================"
 echo
 
 echo "============================================"
-echo " Step 8: Restoring home directory files"
+echo " Step 7: Restoring home directory files"
 echo "============================================"
 
 ./scripts/restore-home.sh
 
 echo
+
+echo "============================================"
+echo " Step 8: Mounting NAS"
+echo "============================================"
+
+./scripts/mount-nas.sh
+
+echo
+
 echo "============================================"
 echo " Step 9: Automated MPD setup"
 echo "============================================"
@@ -109,6 +113,22 @@ echo " Step 10: Installing SDDM theme"
 echo "============================================"
 
 ./scripts/install-sddm-theme.sh
+
+echo
+
+echo "============================================"
+echo " Step 11: Adding Wireguard VPN"
+echo "============================================"
+
+./scripts/proton-wireguard.sh
+
+echo
+
+echo "============================================"
+echo " Step 12: Restoring GNOME settings"
+echo "============================================"
+
+./scripts/restore-gnome.sh
 
 echo
 
