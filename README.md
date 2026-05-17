@@ -1,5 +1,5 @@
 # Disclaimer
-This script is about 60% complete and is intended to work once archinstaller using the gnome preset has initialized.
+This script is about 85% complete and is intended to work once archinstaller using the gnome preset has initialized.
 
 # To do
 * Auto install gnome extenstions (Probably not happening).
