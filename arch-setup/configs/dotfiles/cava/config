@@ -1,6 +1,0 @@
-[general]
-theme = pastel_orange
-
-[input]
-method = fifo
-source = /tmp/mpd.fifo
