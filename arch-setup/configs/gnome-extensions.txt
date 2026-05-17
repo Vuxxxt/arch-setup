@@ -1,0 +1,14 @@
+AlphabeticalAppGrid@stuarthayhurst
+monitor@astraext.github.io
+auto-move-windows@gnome-shell-extensions.gcampax.github.com
+blur-my-shell@aunetx
+clipboard-indicator@tudmotu.com
+hidetopbar@mathieu.bidon.ca
+just-perfection-desktop@just-perfection
+mediacontrols@cliffniff.github.com
+user-theme@gnome-shell-extensions.gcampax.github.com
+no-overview@fthx
+quick-settings-audio-panel@rayzeq.github.io
+space-bar@luchrioh
+top-bar-organizer@julian.gse.jsts.xyz
+tweaks-system-menu@extensions.gnome-shell.fifi.org
