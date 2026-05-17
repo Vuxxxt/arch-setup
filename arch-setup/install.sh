@@ -18,6 +18,8 @@ echo " - Install pacman packages"
 echo " - Install AUR packages"
 echo " - Install flatpak applications"
 echo " - Restore GNOME settings"
+echo " - Move .dotfiles to .config"
+echo " - Move certain files to the home directory"
 echo
 
 read -rp "Proceed? (y/N): " confirm
