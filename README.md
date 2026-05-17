@@ -1,5 +1,4 @@
-# arch-setup
-Auto script to reinstall main my main packages, yay, gnome conf, flatpaks and aur packages. 
+This script is about 60% complete and is intended to work once archinstaller using the gnome preset has initialized.
 
 # To do
 Auto install gnome extenstions.
