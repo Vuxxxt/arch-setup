@@ -20,6 +20,7 @@ echo " - Install flatpak applications"
 echo " - Setup locale"
 echo " - Restore dotfiles"
 echo " - Restore home files"
+echo " - Move backgrounds and logos"
 echo " - Mount NAS"
 echo " - Configure MPD"
 echo " - Install SDDM theme"
@@ -93,7 +94,15 @@ echo "============================================"
 echo
 
 echo "============================================"
-echo " Step 8: Mounting NAS"
+echo " Step 8: Move backgrounds and logos"
+echo "============================================"
+
+./scripts/move-pictures.sh
+
+echo
+
+echo "============================================"
+echo " Step 9: Mounting NAS"
 echo "============================================"
 
 ./scripts/mount-nas.sh
@@ -101,7 +110,7 @@ echo "============================================"
 echo
 
 echo "============================================"
-echo " Step 9: Automated MPD setup"
+echo " Step 10: Automated MPD setup"
 echo "============================================"
 
 ./scripts/install-mpd.sh
@@ -109,7 +118,7 @@ echo "============================================"
 echo
 
 echo "============================================"
-echo " Step 10: Installing SDDM theme"
+echo " Step 11: Installing SDDM theme"
 echo "============================================"
 
 ./scripts/install-sddm-theme.sh
@@ -117,7 +126,7 @@ echo "============================================"
 echo
 
 echo "============================================"
-echo " Step 11: Adding Wireguard VPN"
+echo " Step 12: Adding Wireguard VPN"
 echo "============================================"
 
 ./scripts/proton-wireguard.sh
@@ -125,7 +134,7 @@ echo "============================================"
 echo
 
 echo "============================================"
-echo " Step 12: Restoring GNOME settings"
+echo " Step 13: Restoring GNOME settings"
 echo "============================================"
 
 ./scripts/restore-gnome.sh
