@@ -5,6 +5,14 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "$ROOT_DIR"
 
+echo "Root directory: $ROOT_DIR"
+
+# Make all scripts executable
+if [ -d "$ROOT_DIR/scripts" ]; then
+    echo "Setting execute permissions for scripts..."
+    chmod +x "$ROOT_DIR/scripts/"*.sh
+fi
+
 clear
 
 echo "============================================"
