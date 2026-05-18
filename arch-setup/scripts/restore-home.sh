@@ -4,8 +4,17 @@ set -e
 SOURCE_DIR="configs/home"
 TARGET_DIR="$HOME"
 
+echo "Checking for special directory renames..."
+
+# Rename themes → .themes (portable + safe)
+if [ -d "$SOURCE_DIR/themes" ] && [ ! -d "$SOURCE_DIR/.themes" ]; then
+    echo "Renaming themes → .themes"
+    mv "$SOURCE_DIR/themes" "$SOURCE_DIR/.themes"
+fi
+
 mkdir -p "$TARGET_DIR"
 
+echo
 echo "Restoring home directory files..."
 
 for item in "$SOURCE_DIR"/* "$SOURCE_DIR"/.*; do
