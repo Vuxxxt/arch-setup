@@ -1,7 +1,6 @@
 # Disclaimer
 This script is about 85% complete and is intended to work once archinstaller using the gnome preset has initialized.
 * Must have "additions" folder added for wireguard config.
-* Move .themes folder before running the script. 
 
 # To do
 * Auto install gnome extenstions (Probably not happening).
